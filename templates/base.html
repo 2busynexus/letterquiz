@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="."><img src="{{ url_for('static', filename = 'img/logo.png')}}" alt="logo"></a>
+            </div>
+            <div class="title">
+                <h3>Letter Quiz</h1>
+                <h3>Test you world knowledge</h3>
+            </div>
+        </header>
+
+        <section class="info">
+            <div>
+                <h3>Name: 
+                    {% if session["user"] %}
+                    {{session["user"]}}
+                    {% endif %}
+                </h3>
+                <h3>High Score: {% if session["user"] %}
+                    {{session["profile"][0][4]}}
+                    {% endif %}
+                </h3>
+                <h3>Last Round: {{ score }}</h3>
+            </div>
+            <div>
+                <h3>Your letter this round is:</h3>
+                <h1>{{ letter | upper}}</h1>
+            </div>
+            <!--
+            <div>
+                <h3>Time left:</h3>
+                <h2>60</h2>
+            </div>
+        -->
+        </section>
+         
+        <section class="leaderboard">
+             <!--  
+            <button id="endGame" onclick="endGame()">End Game</button>
+            <h4>You think something is missing from the database?</h4>
+            <button onclick="report()">Click to send addition</button>
+            -->
+        </section>
+        
+        <main>
+
+            {% block content %} {% endblock %}
+            
+            
+        </main>
+
+        <footer>
+            
+            <h6>Image Copyright : <a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a></h6>
+        </footer>
+    </container> 
+
+
+    <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+
+
+</body>
+</html>

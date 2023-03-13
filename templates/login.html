@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+
+    <form method="POST" onsubmit="startGame()">
+        {{ form.hidden_tag() }}
+        <h3>{{ form.username.label}}</h3>
+        {{ form.username()}}
+        <h3>{{ form.password.label}}</h3>
+        {{ form.password()}}
+        {{ form.submit()}}
+        <h3>{{ error }}</h3>
+        
+</form>
+
+</div>
+
+{% endblock %}
