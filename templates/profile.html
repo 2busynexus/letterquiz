@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="content">
+    <h1 id="startGame"><a href="{{url_for('game')}}" >Start Game</a></h1>
+    <div class="profile">
+        
+        
+        <h2> {% if session["user"] %}
+            {{ session["user"] | upper }}
+            {% endif %}'s Profile</h2>
+        <h2>High Score : {% if session["user"] %}
+            {{session["profile"][0][4]}}
+            {% endif %}</h2>
+        <br>
+        <form action="" method="POST">
+            {{ changeEmail.hidden_tag() }}
+            {{ changeEmail.email.label }}
+            {{ changeEmail.email() }}
+            {{ changeEmail.submit() }}
+            <h3 id="profile_error">{{ emailError }}</h3>
+        </form>
+
+        <br>
+
+        <form action="" method="POST">
+            {{ changePassword.hidden_tag() }}
+            {{ changePassword.password.label }}
+            {{ changePassword.password() }}
+            {{ changePassword.confirmPassword.label }}
+            {{ changePassword.confirmPassword() }}
+            {{ changePassword.submit() }}
+            <h3 id="profile_error">{{ passError }}</h3>
+        </form>
+
+        <a id="deleteAcc" href="{{url_for('delete')}}">Delete account</a>
+       
+
+    </div>
+
+</div>
+
+{% endblock %}

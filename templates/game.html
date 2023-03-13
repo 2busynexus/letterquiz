@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="content">
+    <div class="main-game">
+  <!--      <button>Generate letter</button> -->
+        <div>
+            <form method="POST">
+            {{ form.hidden_tag() }}
+                
+                    <h2>{{ form.countryPick.label }}</h2>   
+                    {{ form.countryPick() }}
+             
+                    <h2>{{ form.cityPick.label }}</h2>
+                    {{ form.cityPick() }}
+           
+                    <h2>{{ form.waterPick.label }}</h2> 
+                    {{ form.waterPick() }}  
+             
+                    <h2>{{ form.mountainPick.label }}</h2>
+                    {{ form.mountainPick() }}
+                   
+                    <h2>{{ form.cropPick.label }}</h2>
+                    {{ form.cropPick() }}
+                    
+                    <h2>{{ form.animalPick.label }}</h2>  
+                    {{ form.animalPick() }}
+                  
+                
+                <h3>{{ form.submit() }}</h3>
+                
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<!--
+    
+<div class="report">
+    <h3>Please report here what do you think it's missing</h3>
+</div>
+
+-->
+
+{% endblock %}

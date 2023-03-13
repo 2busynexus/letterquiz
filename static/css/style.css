@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300;400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shantell Sans', cursive;
+    font-weight: 400;
+}
+
+body {
+    height: 100vh;
+    background-image: url(/static/img/bg.jpg);
+    /*
+    not working
+    {{ url_for('static', filename = 'img/bg.jpg') }}
+    ..static/img/bg.jpg 
+    */
+    display: flex;
+    justify-content: center;
+}
+
+a,
+a:visited,
+a:active,
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+button, 
+input[type="submit"], 
+.content a {
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: hsl(45, 100%, 50%);
+    transition: 0.2s;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+button:hover, 
+input[type="submit"]:hover, 
+.content a:hover {
+    background-color: hsl(45, 100%, 90%);
+}
+.container {
+    height: 100%;
+    width: 70%;
+    padding: 5%;
+    display: grid;
+    grid-template: 
+    "title title"
+    "info main"
+    "leaderboard main"
+    "footer footer";
+    grid-template-rows:    10% 40% 40% 10%;
+    grid-template-columns: 20% 80%;
+}
+
+header {
+    background-color: hsla(45, 100%, 50%, 0.8);
+    grid-area: title;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+header img {
+    width: 75px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    text-align: center;
+}
+
+/* Game details, player name, score, buttons and main game */
+
+/* By default the start game button and the end game button are not displayed */
+
+#endGame {
+    display: none;
+}
+
+.info {
+    background-color: hsla(195, 70%, 50%, 0.6);
+    grid-area: info;
+    color: black;
+}
+
+.info div {
+    margin: 10px;
+}
+
+.info div h1{
+    margin-top: 20px;
+    font-size: 5em;
+}
+
+.info div h2 {
+    font-size: 3em;
+}
+
+.leaderboard {
+    background-color: hsla(195, 70%, 50%, 0.6);
+    grid-area: leaderboard;
+}
+
+main {
+    grid-area: main;
+    background-color: hsla(195, 70%, 50%, 0.6);
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input {
+    margin: 20px 0;
+    padding: 0 50%;
+}
+
+/*
+form label {
+    font-size: 1.17em;
+}
+*/
+
+.main-game {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    
+    align-items: center;
+}
+
+.main-game div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+input {
+    font-size: 22px;
+    border: 0;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.answer {
+    background-color: aqua;
+}
+
+.score {
+    display: inline-block;
+    background-color: brown;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#startGame {
+    margin-bottom: 2em;
+}
+
+#changeEmail, #changePass {
+    background-color: hsl(45, 100%, 90%);
+}
+
+#deleteAcc {
+    background-color: hsl(0, 70%, 40%);
+    color: hsl(45, 100%, 90%);
+}
+
+#changeEmail:hover, #changePass:hover {
+    background-color: hsl(45, 100%, 50%);
+}
+
+#deleteAcc:hover {
+    background-color: hsl(0, 70%, 60%);
+}
+
+#profile_error {
+    color: hsl(0, 70%, 40%);
+}
+
+footer {
+    background-color: hsla(45, 100%, 50%, 0.8);
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1920px) and (min-width: 769px) {
+    .container {
+        width: 90%;
+    }
+}
