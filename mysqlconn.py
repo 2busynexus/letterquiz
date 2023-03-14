@@ -9,7 +9,7 @@ config = {
     'host': 'aws-eu-west-2.connect.psdb.cloud',
     'database': 'quizgamedb',
     'ssl_ca': "/etc/ssl/cert.pem",
-    'use_pure': True
+    'use_pure': "True"
 }
 
 conn = mysql.connect(**config)
