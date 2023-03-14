@@ -12,7 +12,7 @@ def connectionTest():
     if conn.is_connected():
         print(f"Connected to MySQL")
     else:
-        return(f"Not connected")
+        print(f"Not connected")
 
 
 
