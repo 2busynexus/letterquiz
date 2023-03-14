@@ -2,4 +2,5 @@ Flask
 gunicorn
 flask_wtf
 wtforms
-mysql.connector
+sqlalchemy
+pymysql
