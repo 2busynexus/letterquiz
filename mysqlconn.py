@@ -1,18 +1,19 @@
 import mysql.connector as mysql
+from mysql.connector.constants import ClientFlag
 #from credentials import *
 
-conn = mysql.connect(host="aws-eu-west-2.connect.psdb.cloud", 
-                     database = "quizgamedb",
-                     user = "kvhc9tqhx0g0b2ii9y2d", 
-                     password = "pscale_pw_Xb3ilMthaQ5E0D6Ccf2S1vYAGJrWAQObvaumYwnGTs")
 
-connection_uri = (
-    "mysql+mysqldb://scott:tiger@192.168.0.134/test"
-    "?ssl_ca=/home/gord/client-ssl/ca.pem"
-    "&ssl_cert=/home/gord/client-ssl/client-cert.pem"
-    "&ssl_key=/home/gord/client-ssl/client-key.pem"
-)
+config = {
+    'user': 'kvhc9tqhx0g0b2ii9y2d',
+    'password': 'pscale_pw_Xb3ilMthaQ5E0D6Ccf2S1vYAGJrWAQObvaumYwnGTs',
+    'host': 'aws-eu-west-2.connect.psdb.cloud',
+    'port': 3306,
+    'database': 'quizgamedb',
+    'client_flags': [ClientFlag.SSL],
+    'ssl_ca': "/etc/ssl/cert.pem"
+}
 
+conn = mysql.connect(**config)
 cursor = conn.cursor()
 
 def connectionTest():
