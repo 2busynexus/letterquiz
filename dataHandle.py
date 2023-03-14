@@ -1,12 +1,12 @@
-#from mysqlconn import *
-from database import *
+from mysqlconn import *
+"""#from database import *
 
-"""class user():
+class user():
     id = ""
     userName = ""
     email = ""
     password = ""
-    highScore = """""
+    highScore = ""
 
 def newUser(username, email, password):
     #query to add in users table
@@ -17,15 +17,13 @@ def newUser(username, email, password):
     values = {"username": username, "email": email, "password": password}
     conn.execute(query, values)
     conn.close()
-
+"""
 def checkUser(username, email):
-    conn = engine.connect()
-    query = text("SELECT * FROM userProfile WHERE username = :username OR email = :email")
-    profile = conn.execute(query, username=username, email=email).fetchall()
-    conn.close()
+    cursor.execute(f"SELECT * FROM userProfile WHERE username = '{username}' OR email = '{email}'")
+    profile = cursor.fetchall()
     return profile
     #query to look for user in the table
-
+"""
 def updateUser(key, value, username):
     conn = engine.connect()
     if key=="email":
@@ -73,3 +71,4 @@ def score(answers):
         points+=i
     return points
  
+"""
