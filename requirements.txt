@@ -2,3 +2,4 @@ Flask
 gunicorn
 flask_wtf
 wtforms
+mysql
