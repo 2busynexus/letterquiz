@@ -21,6 +21,7 @@ def checkUser(username, email):
     conn = engine.connect()
     query = text("SELECT * FROM userProfile WHERE username = :username OR email = :email")
     profile = conn.execute(query, {"username": username, "email": email}).fetchall()
+    print(type(profile))
     conn.close()
     return profile
     #query to look for user in the table

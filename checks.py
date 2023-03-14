@@ -45,4 +45,4 @@ def getProfile(user):
     query = text("SELECT * FROM userProfile WHERE username = :user")
     profile = conn.execute(query, {"user": user}).fetchall()
     conn.close()
-    return(profile)
+    return profile

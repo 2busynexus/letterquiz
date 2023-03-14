@@ -3,7 +3,7 @@ from forms import loginForm, signUpForm, gameForm, changeEmailForm, changePasswo
 import random
 
 
-#from mysqlconn import *
+from mysqlconn import *
 from checks import *
 
 
