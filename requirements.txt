@@ -4,4 +4,3 @@ flask_wtf
 wtforms
 sqlalchemy
 pymysql
-mysql.connector

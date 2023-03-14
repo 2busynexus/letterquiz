@@ -31,14 +31,18 @@ def checkLogin(username, password):
     #cursor.execute(f"SELECT * FROM users WHERE username = {str} & ")
 
 def checkEmail(email):
-    cursor.execute(f"SELECT * FROM userProfile WHERE email = {email}")
-    results = cursor.fetchall()
+    conn = engine.connect()
+    query = text("SELECT * FROM userProfile WHERE email = :email")
+    results = conn.execute(query, email=email).fetchall()
+    conn.close()
     if results:
         print("EXISTS")
     else:
         print("NOT EXIST")
 
 def getProfile(user):
-    cursor.execute(f"SELECT * FROM userProfile WHERE username = '{user}'")
-    profile = cursor.fetchall()
+    conn = engine.connect()
+    query = text("SELECT * FROM userProfile WHERE username = :user")
+    profile = conn.execute(query, user=user).fetchall()
+    conn.close()
     return(profile)

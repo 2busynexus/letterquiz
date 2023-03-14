@@ -1,4 +1,4 @@
-import mysql.connector as mysql
+"""import mysql.connector as mysql
 from mysql.connector.constants import ClientFlag
 #from credentials import *
 
@@ -9,7 +9,8 @@ config = {
     'host': 'aws-eu-west-2.connect.psdb.cloud',
     'database': 'quizgamedb',
     'client_flags': [ClientFlag.SSL],
-    'ssl_ca': "/etc/ssl/cert.pem"
+    'ssl_ca': "/etc/ssl/cert.pem",
+    'ssl_verify_identity': True
 }
 
 conn = mysql.connect(**config)
@@ -22,3 +23,4 @@ def connectionTest():
         return print("Not connected")
 
 
+"""
