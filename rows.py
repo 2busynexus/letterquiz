@@ -18,7 +18,7 @@ def countriesRows(str):
     conn.close()
     return data
 
-print(countriesRows("a"))
+#print(countriesRows("a"))
 
 def citiesRows(str):
     conn = engine.connect()
