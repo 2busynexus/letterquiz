@@ -7,7 +7,6 @@ config = {
     'user': 'kvhc9tqhx0g0b2ii9y2d',
     'password': 'pscale_pw_Xb3ilMthaQ5E0D6Ccf2S1vYAGJrWAQObvaumYwnGTs',
     'host': 'aws-eu-west-2.connect.psdb.cloud',
-    'port': 3306,
     'database': 'quizgamedb',
     'client_flags': [ClientFlag.SSL],
     'ssl_ca': "/etc/ssl/cert.pem"
@@ -21,7 +20,5 @@ def connectionTest():
         return print("Connected to MySQL")
     else:
         return print("Not connected")
-
-
 
 
