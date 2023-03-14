@@ -33,7 +33,7 @@ def checkLogin(username, password):
 def checkEmail(email):
     conn = engine.connect()
     query = text("SELECT * FROM userProfile WHERE email = :email")
-    results = conn.execute(query, email=email).fetchall()
+    results = conn.execute(query, {"email": email}).fetchall()
     conn.close()
     if results:
         print("EXISTS")
@@ -43,6 +43,6 @@ def checkEmail(email):
 def getProfile(user):
     conn = engine.connect()
     query = text("SELECT * FROM userProfile WHERE username = :user")
-    profile = conn.execute(query, user=user).fetchall()
+    profile = conn.execute(query, {"user": user}).fetchall()
     conn.close()
     return(profile)

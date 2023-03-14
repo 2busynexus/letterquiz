@@ -1,4 +1,4 @@
-import mysql.connector as mysql
+"""import mysql.connector as mysql
 #from mysql.connector.constants import ClientFlag
 #from credentials import *
 
@@ -24,3 +24,4 @@ def connectionTest():
         return print("Not connected")
 
 
+"""
