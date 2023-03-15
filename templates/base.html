@@ -21,7 +21,7 @@
                 <ul>
                     {% if session["user"] %}
                     <li><a href=".">Log Out</a></li>
-                    <li><a href="">Profile</a></li>
+                    <li><a href="{{url_for('profile')}}">Profile</a></li>
                     {% endif %}
                 </ul>
             </nav>
