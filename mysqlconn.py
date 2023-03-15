@@ -45,14 +45,14 @@ conn = mysql.connect(
 
 #PYTHON ANYWHERE DB
 
-"""conn = mysql.connect(
+conn = mysql.connect(
   host= "iammihai.mysql.pythonanywhere-services.com",
   user= "iammihai",
   passwd= "quizgame",
   db= "iammihai$letterquiz",
   ssl_verify_cert = False,
   ssl_ca = "/etc/ssl/cert.pem"
-)"""
+)
 
 cursor = conn.cursor()
 
