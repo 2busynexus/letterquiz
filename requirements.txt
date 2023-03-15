@@ -5,3 +5,5 @@ wtforms
 sqlalchemy
 pymysql
 mysql-connector
+python-dotenv 
+mysqlclient

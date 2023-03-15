@@ -1,5 +1,20 @@
 import mysql.connector as mysql
+from mysql.connector import Error
+from dotenv import load_dotenv
+import os
 
+
+load_dotenv()
+
+conn = mysql.connect(
+  host= os.getenv("HOST"),
+  user=os.getenv("USERNAME"),
+  passwd= os.getenv("PASSWORD"),
+  db= os.getenv("DATABASE"),
+  #ssl_mode = "VERIFY_IDENTITY",
+  ssl_ca = "/etc/ssl/cert.pem"
+ 
+)
 
 #config = {
   #  'user': 'kvhc9tqhx0g0b2ii9y2d',
@@ -13,15 +28,16 @@ import mysql.connector as mysql
 #}
 
 #ionos
-conn = mysql.connect(
+"""conn = mysql.connect(
     user= 'kvhc9tqhx0g0b2ii9y2d',
     password= 'pscale_pw_Xb3ilMthaQ5E0D6Ccf2S1vYAGJrWAQObvaumYwnGTs',
     host= 'aws-eu-west-2.connect.psdb.cloud',
     database= 'quizgamedb',
 
-)
+)"""
 
 cursor = conn.cursor()
+
 
 #conn = mysql.connect(**config)
 #cursor = conn.cursor()
@@ -33,3 +49,19 @@ def connectionTest():
         return print("Not connected")
 
 connectionTest()
+
+"""try:
+    if conn.is_connected():
+        tryCursor = conn.cursor()
+    cursor.execute("select @@version ")
+    version = cursor.fetchone()
+    if version:
+        print('Running version: ', version)
+    else:
+        print('Not connected')
+except Error as e:
+    print("error while connecting", e)
+finally:
+    conn.close()"""
+
+
