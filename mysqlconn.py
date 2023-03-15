@@ -11,10 +11,10 @@ conn = mysql.connect(
   user=os.getenv("USERNAME"),
   passwd= os.getenv("PASSWORD"),
   db= os.getenv("DATABASE"),
+  port=3306,
   #ssl_mode = "VERIFY_IDENTITY",
   ssl_verify_cert = True,
   ssl_ca = "/etc/ssl/cert.pem"
- 
 )
 
 #config = {
