@@ -35,13 +35,12 @@ conn = mysql.connect(
 
 
 #LOCALHOST
-conn = mysql.connect(
+"""conn = mysql.connect(
     user= 'root',
     password= os.getenv('password2'),
     host= 'localhost',
     database= 'quizgamedb',
-
-)
+)"""
 
 #PYTHON ANYWHERE DB
 
