@@ -1,9 +1,9 @@
 import mysql.connector as mysql
 #from mysql.connector import Error
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 
-load_dotenv()
+#load_dotenv()
 
 #PLANET SCALE INSTRUCTIONS
 
