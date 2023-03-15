@@ -14,7 +14,7 @@ def countriesRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+
     return data
 
 #print(countriesRows("a"))
@@ -25,7 +25,7 @@ def citiesRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+
     return data
 
 def watersRows(str):
@@ -34,7 +34,7 @@ def watersRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+   
     return data
 
 def mountainsRows(str):
@@ -43,7 +43,7 @@ def mountainsRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+
     return data
 
 def cropsRows(str):
@@ -52,7 +52,7 @@ def cropsRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+  
     return data
 
 def animalsRows(str):
@@ -61,7 +61,7 @@ def animalsRows(str):
     data = []
     for row in rows:
         data.append(row[1])
-    conn.close()
+
     return data
 
 def allRows(answer, data):

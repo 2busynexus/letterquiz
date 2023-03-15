@@ -14,18 +14,18 @@ def newUser(username, email, password):
     #conn.commit()
     cursor.execute(f"INSERT INTO userProfile (userName, email, password) VALUES ('{username}', '{email}', '{password}')")
     conn.commit()
-    conn.close()
+
 
 def checkUser(username, email):
-    cursor.execute(f"SELECT * FROM userProfile WHERE username = :username OR email = :email")
+    cursor.execute(f"SELECT * FROM userProfile WHERE username = '{username}' OR email = '{email}'")
     profile = cursor.fetchall()
-    conn.close()
+ 
     return profile
     #query to look for user in the table
 
 def updateUser(key, value, username):
     if key=="email":
-        cursor.execute(f"SELECT * FROM userProfile WHERE email = :value")
+        cursor.execute(f"SELECT * FROM userProfile WHERE email = '{value}'")
         check = cursor.fetchall()
         if check:
             print("emails is already assigned to someone else")
@@ -39,24 +39,24 @@ def updateUser(key, value, username):
         cursor.execute(f"UPDATE userProfile SET password='{value}' WHERE username='{username}'")
         conn.commit()
 
-    conn.close()
+
 
 
 def deleteUser(username):
     cursor.execute(f"DELETE FROM userProfile WHERE username = '{username}'")
     conn.commit()
-    conn.close()
+
 
 def addHighscore(points, username):
     cursor.execute(f"UPDATE userProfile SET highscore = highscore+ {points} WHERE username = '{username}'")
     conn.commit()
-    conn.close()
+
 
     
 def checkHighscore(username):
     cursor.execute(f"SELECT highscore FROM userProfile WHERE username = '{username}'")
     highscore = cursor.fetchone()
-    conn.close()
+
     return highscore
 
 def score(answers):
