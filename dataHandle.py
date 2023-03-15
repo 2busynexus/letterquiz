@@ -1,5 +1,5 @@
-#from mysqlconn import *
-from database import *
+from mysqlconn import *
+#from database import *
 
 """class user():
     id = ""
@@ -12,58 +12,50 @@ def newUser(username, email, password):
     #query to add in users table
     #cursor.execute(f"INSERT INTO userProfile (userName, email, password) VALUES ('{username}', '{email}', '{password}')")
     #conn.commit()
-    conn = engine.connect()
-    query = text("INSERT INTO userProfile (userName, email, password) VALUES (:username, :email, :password)")
-    conn.execute(query, {"username": username, "email": email, "password": password})
+    cursor.execute(f"INSERT INTO userProfile (userName, email, password) VALUES ('{username}', '{email}', '{password}')")
+    conn.commit()
     conn.close()
 
 def checkUser(username, email):
-    conn = engine.connect()
-    query = text("SELECT * FROM userProfile WHERE username = :username OR email = :email")
-    profile = conn.execute(query, {"username": username, "email": email}).fetchall()
-    print(type(profile))
+    cursor.execute(f"SELECT * FROM userProfile WHERE username = :username OR email = :email")
+    profile = cursor.fetchall()
     conn.close()
     return profile
     #query to look for user in the table
 
 def updateUser(key, value, username):
-    conn = engine.connect()
     if key=="email":
-        query = text("SELECT * FROM userProfile WHERE email = :value")
-        check = conn.execute(query, {"value": value}).fetchall()
+        cursor.execute(f"SELECT * FROM userProfile WHERE email = :value")
+        check = cursor.fetchall()
         if check:
             print("emails is already assigned to someone else")
             return False
         else:
-            query = text("UPDATE userProfile SET email = :value WHERE username = :username")
-            conn.execute(query, {"value": value, "username":username})
+            cursor.execute(f"UPDATE userProfile SET email = '{value}' WHERE username = '{username}'")
+            conn.commit()
             return True
 
     if key == "password":
-        query = text("UPDATE userProfile SET password=:value WHERE username=:username")
-        conn.execute(query, {"value": value, "username":username})
+        cursor.execute(f"UPDATE userProfile SET password='{value}' WHERE username='{username}'")
         conn.commit()
 
     conn.close()
 
 
 def deleteUser(username):
-    conn = engine.connect()
-    query = text("DELETE FROM userProfile WHERE username = :username")
-    conn.execute(query, {"username": username})
+    cursor.execute(f"DELETE FROM userProfile WHERE username = '{username}'")
+    conn.commit()
     conn.close()
 
 def addHighscore(points, username):
-    conn = engine.connect()
-    query = text("UPDATE userProfile SET highscore = highscore+ :points WHERE username = :username")
-    conn.execute(query, {"points": points, "username": username})
+    cursor.execute(f"UPDATE userProfile SET highscore = highscore+ {points} WHERE username = '{username}'")
+    conn.commit()
     conn.close()
 
     
 def checkHighscore(username):
-    conn = engine.connect()
-    query = text("SELECT highscore FROM userProfile WHERE username = :username")
-    highscore = conn.execute(query, {"username": username}).fetchone()
+    cursor.execute(f"SELECT highscore FROM userProfile WHERE username = '{username}'")
+    highscore = cursor.fetchone()
     conn.close()
     return highscore
 
@@ -72,4 +64,3 @@ def score(answers):
     for i in answers.values():
         points+=i
     return points
- 

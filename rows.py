@@ -1,5 +1,5 @@
-#from mysqlconn import *
-from database import *
+from mysqlconn import *
+#from database import *
 
 """def showTables():
     cursor.execute("SHOW TABLES")
@@ -9,9 +9,8 @@ from database import *
     return tables"""
 
 def countriesRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM countries WHERE country LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM countries WHERE country LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])
@@ -21,9 +20,8 @@ def countriesRows(str):
 #print(countriesRows("a"))
 
 def citiesRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM cities WHERE city LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM cities WHERE city LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])
@@ -31,9 +29,8 @@ def citiesRows(str):
     return data
 
 def watersRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM water_country WHERE water LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM water_country WHERE water LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])
@@ -41,9 +38,8 @@ def watersRows(str):
     return data
 
 def mountainsRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM mountain_country WHERE mountain LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM mountain_country WHERE mountain LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])
@@ -51,9 +47,8 @@ def mountainsRows(str):
     return data
 
 def cropsRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM crops WHERE crop LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM crops WHERE crop LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])
@@ -61,9 +56,8 @@ def cropsRows(str):
     return data
 
 def animalsRows(str):
-    conn = engine.connect()
-    query = text(f"SELECT * FROM animals WHERE animal LIKE '{str}%' ")
-    rows = conn.execute(query).fetchall()
+    cursor.execute(f"SELECT * FROM animals WHERE animal LIKE '{str}%' ")
+    rows = cursor.fetchall()
     data = []
     for row in rows:
         data.append(row[1])

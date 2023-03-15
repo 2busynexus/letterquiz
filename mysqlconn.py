@@ -12,6 +12,7 @@ conn = mysql.connect(
   passwd= os.getenv("PASSWORD"),
   db= os.getenv("DATABASE"),
   #ssl_mode = "VERIFY_IDENTITY",
+  ssl_verify_cert = True,
   ssl_ca = "/etc/ssl/cert.pem"
  
 )
