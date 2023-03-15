@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content">
+<div class="log-sign">
 
     <form method="POST" onsubmit="startGame()">
         {{ form.hidden_tag() }}
@@ -12,7 +12,10 @@
         {{ form.submit()}}
         <h3>{{ error }}</h3>
         
-</form>
+    </form>
+
+    
+    <a href=".">Back to Main Page</a></li>
 
 </div>
 

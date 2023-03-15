@@ -2,18 +2,22 @@
 
 {% block content %}
 
-<div class="content">
-    <h1 id="startGame"><a href="{{url_for('game')}}" >Start Game</a></h1>
+    
     <div class="profile">
         
-        
+        <h1 id="startGame"><a href="{{url_for('game')}}" >Start Game</a></h1>
+        <hr>
+        <br>
         <h2> {% if session["user"] %}
             {{ session["user"] | upper }}
             {% endif %}'s Profile</h2>
         <h2>High Score : {% if session["user"] %}
             {{session["profile"][0][4]}}
             {% endif %}</h2>
+            <br>
+        <hr>
         <br>
+        
         <form action="" method="POST">
             {{ changeEmail.hidden_tag() }}
             {{ changeEmail.email.label }}
@@ -39,6 +43,6 @@
 
     </div>
 
-</div>
+
 
 {% endblock %}

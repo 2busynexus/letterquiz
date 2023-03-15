@@ -36,7 +36,8 @@ footer a {
 
 button, 
 input[type="submit"], 
-.content a {
+.content a,
+nav ul li {
     margin: 30px auto;
     padding: 10px 20px;
     font-size: 1em;
@@ -52,7 +53,8 @@ input[type="submit"],
 
 button:hover, 
 input[type="submit"]:hover, 
-.content a:hover {
+.content a:hover,
+nav ul li:hover {
     background-color: hsl(45, 100%, 90%);
 }
 .container {
@@ -63,7 +65,7 @@ input[type="submit"]:hover,
     grid-template: 
     "title title"
     "info main"
-    "leaderboard main"
+    "info main"        /* "leaderboard main" */
     "footer footer";
     grid-template-rows:    10% 40% 40% 10%;
     grid-template-columns: 20% 80%;
@@ -109,19 +111,17 @@ section {
     background-color: hsla(195, 70%, 50%, 0.6);
     grid-area: info;
     color: black;
+    gap: 20px;
 }
 
-.info div {
-    margin: 10px;
+.user-display {
+    font-size: 1.25em;
+    color: hsl(0, 70%, 60%);
+    text-transform: uppercase;
 }
 
-.info div h1{
-    margin-top: 20px;
+#letter {
     font-size: 5em;
-}
-
-.info div h2 {
-    font-size: 3em;
 }
 
 .leaderboard {
@@ -134,71 +134,103 @@ main {
     background-color: hsla(195, 70%, 50%, 0.6);
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .content {
     display: flex;
+}
+
+.log-sign {
+    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 25px;
+    align-items: center;
+}
+
+.main-game {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 form input {
     margin: 20px 0;
-    padding: 0 50%;
+    padding: 0 50px;
 }
 
-/*
 form label {
-    font-size: 1.17em;
-}
-*/
-
-.main-game {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    
-    align-items: center;
+    font-size: 1.25em;
 }
 
-.main-game div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
 
 input {
     font-size: 22px;
     border: 0;
+    border-radius: 10px;
     background-color: lightblue;
     text-align: center;
 }
 
-.answer {
-    background-color: aqua;
+nav {
+    display: flex;
 }
 
-.score {
-    display: inline-block;
-    background-color: brown;
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    font-size: 1.25em;
+    margin: 0 20px;
+    background-color: hsl(195, 80%, 60%);
+}
+
+nav ul li:hover {
+    background-color: hsl(195, 80%, 40%);
 }
 
 .profile {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+.profile form input {
+    margin: 20px 0;
+    padding: 0 50px;
+}
+
+input label {
+    background-color: red;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-image: 
+    linear-gradient(to right, hsla(45, 100%, 60%, 0.25), hsla(45, 100%, 50%, 1), hsla(45, 100%, 60%, 0.25));
+}
+
 #startGame {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 #changeEmail, #changePass {
@@ -232,8 +264,3 @@ footer {
     font-weight: 300;
 }
 
-@media screen and (max-width: 1920px) and (min-width: 769px) {
-    .container {
-        width: 90%;
-    }
-}

@@ -11,31 +11,54 @@
     <div class="container">
         <header>
             <div class="logo">
-                <a href="."><img src="{{ url_for('static', filename = 'img/logo.png')}}" alt="logo"></a>
+                <img src="{{ url_for('static', filename = 'img/logo.png')}}" alt="logo">
             </div>
             <div class="title">
                 <h3>Letter Quiz</h1>
                 <h3>Test you world knowledge</h3>
             </div>
+            <nav>
+                <ul>
+                    {% if session["user"] %}
+                    <li><a href=".">Log Out</a></li>
+                    <li><a href="">Profile</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
         </header>
 
         <section class="info">
+            {% if session["user"] %}
+
             <div>
                 <h3>Name: 
                     {% if session["user"] %}
-                    {{session["user"]}}
+                    <span class="user-display">{{session["user"]}}</span>
                     {% endif %}
                 </h3>
-                <h3>High Score: {% if session["user"] %}
-                    {{session["profile"][0][4]}}
-                    {% endif %}
-                </h3>
-                <h3>Last Round: {{ score }}</h3>
             </div>
             <div>
-                <h3>Your letter this round is:</h3>
-                <h1>{{ letter | upper}}</h1>
+                <h3>High Score: {% if session["user"] %}
+                    <span class="user-display">{{session["profile"][0][4]}}</span>
+                    {% endif %}
+                </h3>
+                <h3>Last Round: <span class="user-display">{{ score }}</span></h3>
             </div>
+                {% if true %}
+                <div>
+                    <h3>Your letter this round is:</h3>
+                    <span id="letter">{{ letter | upper}}</span>
+                </div>
+                {% endif %}
+
+            {% else %}
+
+                <div>
+                    <h1>Welcome to the Letter Quiz</h3>
+                </div>
+
+            {% endif %}
+            
             <!--
             <div>
                 <h3>Time left:</h3>
@@ -44,18 +67,23 @@
         -->
         </section>
          
+         <!--  
         <section class="leaderboard">
-             <!--  
+            
             <button id="endGame" onclick="endGame()">End Game</button>
             <h4>You think something is missing from the database?</h4>
             <button onclick="report()">Click to send addition</button>
-            -->
+            
         </section>
+        -->
         
         <main>
 
-            {% block content %} {% endblock %}
-            
+            <div class="content">
+
+                {% block content %} {% endblock %}
+
+            </div>
             
         </main>
 
