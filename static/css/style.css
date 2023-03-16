@@ -159,9 +159,11 @@ form {
     align-items: center;
 }
 
-form input {
+form input[type="text"],
+form input[type="email"],
+form input[type="password"]{
     margin: 20px 0;
-    padding: 0 40%;
+    width: 70%;
 }
 
 form input[type="submit"] {
@@ -278,8 +280,10 @@ footer {
         grid-template-columns: 40% 60%;
         width: 80%;
     }
-    form input {
-        padding: 0 50px;
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"]{
+        width: 70%;
     }
     nav ul li {
         margin: 0 5px;
@@ -295,8 +299,10 @@ footer {
         grid-template-columns: 40% 60%;
         width: 90%;
     }
-    form input {
-        padding: 0 60px;
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        width: 70%;
     }
     nav ul {
         align-items: center;
@@ -320,8 +326,10 @@ footer {
         grid-template-columns: 40% 60%;
         width: 95%;
     }
-    form input {
-        padding: 0 45px;
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        width: 70%
     }
     nav ul {
         align-items: center;
@@ -356,8 +364,10 @@ footer {
         grid-template-rows:    10% 30% 55% 5%;
         grid-template-columns: 20% 80%;
     }
-    form input {
-        padding: 0 60px;
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        width: 70%;
     }
     nav {
         width: 55%;
@@ -391,7 +401,9 @@ footer {
 }
 
 @media (max-height: 1000px) {
-    form input {
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
         margin: 5px;
     }
 }
