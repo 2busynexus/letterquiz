@@ -164,7 +164,7 @@ form {
 
 form input {
     margin: 20px 0;
-    padding: 0 50px;
+    
 }
 
 form label {
@@ -263,4 +263,34 @@ footer {
     justify-content: center;
     font-weight: 300;
 }
+
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+
+}
+
+
+
+
+
+
+
 

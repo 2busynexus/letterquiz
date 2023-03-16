@@ -23,15 +23,18 @@ conn = mysql.connect(
 
 #MYSQL.CONNECTOR SETTINGS
 
-"""conn = mysql.connect(
-  host= os.getenv("HOST"),
-  user=os.getenv("USERNAME"),
-  passwd= os.getenv("PASSWORD"),
-  db= os.getenv("DATABASE"),
-  port=3306,
-  ssl_verify_cert = False,
-  ssl_ca = "/etc/ssl/cert.pem"
-)"""
+
+
+conn = mysql.connect(
+  host= os.environ['host'],
+  user= os.environ['username'],
+  passwd = os.environ['password'],
+  db= os.environ['database'],
+  port=3306, 
+  ssl_verify_cert = False, 
+  ssl_ca = "/etc/ssl/cert.pem",
+  connection_timeout=300
+)
 
 
 #LOCALHOST
@@ -44,14 +47,14 @@ conn = mysql.connect(
 
 #PYTHON ANYWHERE DB
 
-conn = mysql.connect(
+"""conn = mysql.connect(
   host= "iammihai.mysql.pythonanywhere-services.com",
   user= "iammihai",
   passwd= "quizgame",
   db= "iammihai$letterquiz",
   ssl_verify_cert = False,
   ssl_ca = "/etc/ssl/cert.pem"
-)
+)"""
 
 cursor = conn.cursor()
 
@@ -63,6 +66,3 @@ def connectionTest():
         return print("Not connected")
 
 connectionTest()
-
-
-

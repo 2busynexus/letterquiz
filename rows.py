@@ -17,7 +17,7 @@ def countriesRows(str):
 
     return data
 
-#print(countriesRows("a"))
+#print(countriesRows("f"))
 
 def citiesRows(str):
     cursor.execute(f"SELECT * FROM cities WHERE city LIKE '{str}%' ")
